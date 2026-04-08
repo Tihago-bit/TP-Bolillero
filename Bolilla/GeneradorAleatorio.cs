@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 
 namespace Servicios
 {
-    public class GeneradorAleatorio
+    public class GeneradorAleatorio : IGeneradorAleatorio
     {
-        
+        private Random _random = new Random();
+
+        public int Generar(int max)
     }
 }

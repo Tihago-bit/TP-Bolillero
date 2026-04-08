@@ -7,6 +7,9 @@ namespace Servicios
 {
     public class IGeneradorAleatorio
     {
-        
+        public interface IGeneradorAleatorio
+        {
+            int Generar(int max);
+        }
     }
 }
