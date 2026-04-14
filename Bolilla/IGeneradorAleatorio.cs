@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Servicios
+namespace Bolilla
 {
     public class IGeneradorAleatorio
     {
@@ -13,3 +13,14 @@ namespace Servicios
         }
     }
 }
+
+ 
+/* Respuesta de ChatGPT
+namespace Dominio
+{
+    public interface IGeneradorAleatorio
+    {
+        int Generar(int max);
+    }
+}
+*/
