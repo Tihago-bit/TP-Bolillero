@@ -1,3 +1,20 @@
+using Dominio;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Threading.Tasks;
+using Xunit; //a tengo que agregar paquetes
+
+public class SacarBolilla
+{
+    private Bolillero _bolillero;
+
+    // Se ejecuta antes de cada test
+    public SacarBolilla()
+    {
+        // 10 bolillas → del 0 al 9
+        _bolillero = new Bolillero(9, new GeneradorFijo());
+    }
     [Fact]
     public void SacarBolilla()
     {
@@ -12,3 +29,4 @@
         // Verifica que hay 1 afuera
         Assert.Equal(1, _bolillero.CantidadSacadas());
     }
+}
