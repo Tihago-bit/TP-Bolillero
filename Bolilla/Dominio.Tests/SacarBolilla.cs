@@ -9,24 +9,17 @@ public class SacarBolilla
 {
     private Bolillero _bolillero;
 
-    // Se ejecuta antes de cada test
     public SacarBolilla()
     {
-        // 10 bolillas → del 0 al 9
-        _bolillero = new Bolillero(9, new GeneradorFijo());
+        _bolillero = new Bolillero(10, new GeneradorFijo());
     }
+
     [Fact]
-    public void SacarBolilla()
+    public void sacarbolilla()
     {
         var bolilla = _bolillero.SacarBolilla();
-
-        // Verifica que salió la bolilla 0
-        Assert.Equal(0, bolilla.Numero);
-
-        // Verifica que quedan 9 bolillas dentro
-        Assert.Equal(9, _bolillero.CantidadEnBolillero());
-
-        // Verifica que hay 1 afuera
+        Assert.Equal(0, bolilla);
+        Assert.Equal(9, _bolillero.CantidadDentro());
         Assert.Equal(1, _bolillero.CantidadSacadas());
     }
 }

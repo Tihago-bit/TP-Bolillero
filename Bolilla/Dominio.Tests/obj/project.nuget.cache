@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tFhs5moSJgA=",
+  "dgSpecHash": "dLcqvpVUgAw=",
   "success": true,
-  "projectFilePath": "c:\\Users\\Lab15-PC01\\TP-Bolillero\\Bolilla\\Dominio.tests\\Dominio.Tets.csproj",
+  "projectFilePath": "C:\\Users\\Lab15-PC01\\TP-Bolillero\\Bolilla\\Dominio.Tests\\Dominio.Tets.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lab15-PC01\\.nuget\\packages\\coverlet.collector\\6.0.2\\coverlet.collector.6.0.2.nupkg.sha512",
     "C:\\Users\\Lab15-PC01\\.nuget\\packages\\microsoft.codecoverage\\18.4.0\\microsoft.codecoverage.18.4.0.nupkg.sha512",
