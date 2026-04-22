@@ -1,6 +1,6 @@
 
 
-namespace Bolilla
+namespace Dominio
 {
     public class GeneradorFijo : IGeneradorAleatorio
     {
