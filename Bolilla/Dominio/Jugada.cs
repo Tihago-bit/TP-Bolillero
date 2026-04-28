@@ -47,7 +47,7 @@ namespace Dominio
             tareas.Add(Task.Run(() =>
             {
                 var nuevoBolillero = crearBolillero();
-                return nuevoBolillero.Jugar(Numeros);
+                return Jugar(nuevoBolillero);
             }));
         }
 
@@ -62,8 +62,7 @@ namespace Dominio
         public static void ReingresarBolillas(this Bolillero bolillero)
         {
             if (bolillero == null) throw new ArgumentNullException(nameof(bolillero));
-            // No-op implementation to satisfy compilation; replace with the real logic
-            // if Bolillero exposes methods to reinsert previously drawn balls.
+            
         }
     }
 } 

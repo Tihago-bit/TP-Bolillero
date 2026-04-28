@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
-using Xunit; //a tengo que agregar paquetes
+using Xunit; 
 
 public class SacarBolilla
 {
@@ -15,7 +15,7 @@ public class SacarBolilla
     }
 
     [Fact]
-    public void sacarbolilla()
+    public void Sacarbolilla()
     {
         var bolilla = _bolillero.SacarBolilla();
         Assert.Equal(0, bolilla);

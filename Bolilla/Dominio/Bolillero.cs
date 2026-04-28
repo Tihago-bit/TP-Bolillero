@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 
 
-namespace Dominio
+namespace Dominio 
 {
     public class Bolillero
     {
@@ -13,6 +13,8 @@ namespace Dominio
         private List<int> _sacadas;
         private IGeneradorAleatorio _generador;
         private int _n;
+        
+        public List<int> Jugada { get; set; }
 
         public Bolillero(int n, IGeneradorAleatorio generador)
         {
@@ -25,11 +27,13 @@ namespace Dominio
         private void InicializarBolillas()
         {
             _bolillas = new List<int>();
-            _sacadas = new List<int>();
-            for (int i = 1; i <= _n; i++) // crea bolillas numeradas de 1 a n
-            {
-                _bolillas.Add(i);
-            }
+    _sacadas = new List<int>();
+    
+    // ¡AQUÍ ESTÁ EL CAMBIO! Empezamos en 0 y ponemos i < _n
+    for (int i = 0; i < _n; i++) 
+    {
+        _bolillas.Add(i);
+    }
         }
 
         public int SacarBolilla()
@@ -56,8 +60,24 @@ namespace Dominio
             return _sacadas?.Count ?? 0;
         }
 
+        public bool Jugar(List<int> numeros)
+        {
+            foreach (int numeroApostado in numeros)
+    {
+        // Sacamos una bolilla del bolillero
+        int bolillaSacada = SacarBolilla();
 
-}
+        // Si la bolilla que salió no es igual al número que el jugador esperaba, pierde
+        if (bolillaSacada != numeroApostado)
+        {
+            return false;
+        }
+    }
+
+    // Si terminó de revisar toda la lista y todas las bolillas coincidieron, ¡gana!
+    return true;
+        }
+    }
 }
 
 
