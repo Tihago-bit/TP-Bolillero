@@ -1,42 +1,30 @@
-# TP-Bolillero
-Hola 
- el tp bolillero es un tp de un bolillero 
-namespace Dominio.Tests
-{
-    public class ReIngresar_ReadmeTests
-    {
-        private string FindReadme()
-        {
-            var dir = new System.IO.DirectoryInfo(System.AppContext.BaseDirectory);
-            for (int i = 0; i < 10; i++)
-            {
-                var candidate = System.IO.Path.Combine(dir.FullName, "README.md");
-                if (System.IO.File.Exists(candidate)) return candidate;
-                if (dir.Parent == null) break;
-                dir = dir.Parent;
-            }
-            return null;
-        }
+# TP-Bolillero 
+<p align="center">
+  <img src="IMG/TP.png" alt="Bolillero Anime" width="600"/>
+</p>
+Este proyecto es una simulación de un **Bolillero** desarrollada en C# / .NET (ajustar según el lenguaje usado). Permite gestionar la extracción de bolillas de forma aleatoria, asegurando que no se repitan y permitiendo el manejo de múltiples cartones o jugadores.
 
-        [Xunit.Fact]
-        public void ReadmeExists()
-        {
-            var path = FindReadme();
-            Xunit.Assert.False(string.IsNullOrEmpty(path), $"README.md no encontrado empezando en {System.AppContext.BaseDirectory}");
-            Xunit.Assert.True(System.IO.File.Exists(path), "README.md debería existir en el árbol de directorios del proyecto.");
-        }
+## Características
 
-        [Xunit.Fact]
-        public void ReadmeContainsExpectedText()
-        {
-            var path = FindReadme();
-            Xunit.Assert.False(string.IsNullOrEmpty(path), "README.md no encontrado");
-            var content = System.IO.File.ReadAllText(path);
-            var lower = content.ToLowerInvariant();
+- **Simulación Realista:** Extracción aleatoria de números dentro de un rango determinado.
+- **Sin Repetición:** Una vez que sale una bolilla, no vuelve a ingresar al bolillero hasta que se reinicie el juego.
+- **Gestión de Cartones:** Capacidad para comparar las bolillas extraídas con los números de los cartones.
+- **Historial:** Registro de los números que ya han salido.
 
-            Xunit.Assert.Contains("# TP-Bolillero", content);
-            Xunit.Assert.Contains("tp bolillero es un tp de un bolillero", lower);
-        }
-    }
-}
+##  Tecnologías Utilizadas
 
+* **Lenguaje:** C# / .NET
+* **Paradigma:** Programación Orientada a Objetos (POO)
+* **IDE:** Visual Studio / VS Code
+
+##  Requisitos Previos
+
+Para ejecutar este proyecto localmente, asegúrate de tener instalado:
+- [.NET SDK](https://dotnet.microsoft.com/download) (versión 6.0 o superior recomendada).
+- Un entorno de desarrollo compatible.
+
+##  Instalación y Uso
+
+1. **Clona el repositorio:**
+   ```bash
+   git clone [https://github.com/Tihago-bit/TP-Bolillero.git](https://github.com/Tihago-bit/TP-Bolillero.git)

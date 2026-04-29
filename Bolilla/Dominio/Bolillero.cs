@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Dominio 
 {
-    public class Bolillero
+    public class Bolillero : ICloneable
     {
         private List<int> _bolillas;
         private List<int> _sacadas;
@@ -23,17 +23,28 @@ namespace Dominio
             _generador = generador ?? throw new ArgumentNullException(nameof(generador));
             InicializarBolillas();
         }
+        
+        public object Clone()
+        {
+            var clon = new Bolillero(_n, _generador)
+            {
+                _bolillas = new List<int>(_bolillas),
+                _sacadas = new List<int>(_sacadas)
+            };
+
+            return clon;
+        }
 
         private void InicializarBolillas()
         {
             _bolillas = new List<int>();
-    _sacadas = new List<int>();
-    
-    // ¡AQUÍ ESTÁ EL CAMBIO! Empezamos en 0 y ponemos i < _n
-    for (int i = 0; i < _n; i++) 
-    {
-        _bolillas.Add(i);
-    }
+            _sacadas = new List<int>();
+
+            // ¡AQUÍ ESTÁ EL CAMBIO! Empezamos en 0 y ponemos i < _n
+            for (int i = 0; i < _n; i++)
+            {
+                _bolillas.Add(i);
+            }
         }
 
         public int SacarBolilla()
