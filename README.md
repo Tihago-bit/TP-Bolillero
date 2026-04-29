@@ -1,6 +1,7 @@
 # TP-Bolillero 
 <p align="center">
-  <img src="IMG/TP.png" alt="Bolillero Anime" width="600"/>
+ <img width="1408" height="768" alt="TP" src="https://github.com/user-attachments/assets/20aa0d67-0c4e-4ee6-b914-74d5ab5d1dc4" />
+
 </p>
 Este proyecto es una simulación de un **Bolillero** desarrollada en C# / .NET (ajustar según el lenguaje usado). Permite gestionar la extracción de bolillas de forma aleatoria, asegurando que no se repitan y permitiendo el manejo de múltiples cartones o jugadores.
 
