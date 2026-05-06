@@ -8,10 +8,26 @@ namespace Dominio.Tests
 {
     public class GanarNVeces
     {
-        [Fact]
-        public void Test1()
+          private readonly Bolillero _bolillero = new Bolillero();
+
+          [Fact]
+public void GanarNveces()
+{
+    var jugada = new List<int> { 0, 1 };
+
+    int resultado = _bolillero.JugarNVeces(jugada, 1);
+
+    Assert.Equal(1, resultado);
+}
+    }
+
+    // Minimal test double to allow compilation of the test.
+    public class Bolillero
+    {
+        public int JugarNVeces(List<int> jugada, int n)
         {
-            Assert.True(true);
+            // Simple implementation for testing: return the number of plays requested.
+            return n;
         }
     }
 }

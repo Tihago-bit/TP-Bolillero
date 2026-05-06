@@ -1,49 +1,66 @@
 using System;
+using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Dominio
 {
     public class Simulacion
     {
-        private readonly Func<Bolillero> _crearBolillero;
-        private readonly Jugada _jugada;
-
-        public Simulacion(Func<Bolillero> crearBolillero, Jugada jugada)
+        // Simulación sin hilos
+        public long SimularSinHilos(Bolillero bolillero, List<int> jugada, int cantidadSimulaciones)
         {
-            _crearBolillero = crearBolillero ?? throw new ArgumentNullException(nameof(crearBolillero));
-            _jugada = jugada ?? throw new ArgumentNullException(nameof(jugada));
-        }
+            long ganadas = 0;
 
-        public int Ejecutar(int veces)
-        {
-            if (veces < 0) throw new ArgumentOutOfRangeException(nameof(veces), "veces debe ser mayor o igual a 0");
-
-            var ganadas = 0;
-            for (var i = 0; i < veces; i++)
+            for (int i = 0; i < cantidadSimulaciones; i++)
             {
-                var bolillero = _crearBolillero();
-                if (_jugada.Jugar(bolillero))
-                {
+                // Clonar bolillero para no modificar el original
+                Bolillero clon = (Bolillero)bolillero.Clone();
+
+                if (clon.Jugar(jugada))
                     ganadas++;
-                }
             }
 
             return ganadas;
         }
 
-        public async Task<int> EjecutarAsync(int veces)
+        // Simulación con hilos
+        public long SimularConHilos(Bolillero bolillero, List<int> jugada, int cantidadSimulaciones, int cantidadHilos)
         {
-            if (veces < 0) throw new ArgumentOutOfRangeException(nameof(veces), "veces debe ser mayor o igual a 0");
+            long totalGanadas = 0;
+            int simulacionesPorHilo = cantidadSimulaciones / cantidadHilos;
+            int simulacionesRestantes = cantidadSimulaciones % cantidadHilos;
 
-            return await _jugada.JugarNVecesAsync(_crearBolillero, veces);
-        }
+            List<Task<long>> tareas = new List<Task<long>>();
 
-        public double ProbabilidadGanada(int veces)
-        {
-            if (veces <= 0) return 0d;
+            for (int i = 0; i < cantidadHilos; i++)
+            {
+                int simulacionesHilo = simulacionesPorHilo;
+                if (i == 0) simulacionesHilo += simulacionesRestantes; // el primer hilo se queda con las que sobran
 
-            var ganadas = Ejecutar(veces);
-            return (double)ganadas / veces;
+                tareas.Add(Task.Run(() =>
+                {
+                    long ganadasHilo = 0;
+                    // Cada hilo trabaja con su propio clon
+                    Bolillero clon = (Bolillero)bolillero.Clone();
+
+                    for (int j = 0; j < simulacionesHilo; j++)
+                    {
+                        Bolillero juego = (Bolillero)clon.Clone(); // clonar por cada simulación
+                        if (juego.Jugar(jugada))
+                            ganadasHilo++;
+                    }
+
+                    return ganadasHilo;
+                }));
+            }
+
+            Task.WaitAll(tareas.ToArray());
+
+            foreach (var tarea in tareas)
+                totalGanadas += tarea.Result;
+
+            return totalGanadas;
         }
     }
 }

@@ -15,3 +15,10 @@ C:\Users\Lab20-PC02\TP-Bolillero\Bolilla\Dominio\obj\Debug\net9.0\Dominio.dll
 C:\Users\Lab20-PC02\TP-Bolillero\Bolilla\Dominio\obj\Debug\net9.0\refint\Dominio.dll
 C:\Users\Lab20-PC02\TP-Bolillero\Bolilla\Dominio\obj\Debug\net9.0\Dominio.pdb
 C:\Users\Lab20-PC02\TP-Bolillero\Bolilla\Dominio\obj\Debug\net9.0\ref\Dominio.dll
+C:\Users\Lab15-PC01\TP-Bolillero\Bolilla\Dominio\bin\Debug\net9.0\Dominio.deps.json
+C:\Users\Lab15-PC01\TP-Bolillero\Bolilla\Dominio\bin\Debug\net9.0\Dominio.dll
+C:\Users\Lab15-PC01\TP-Bolillero\Bolilla\Dominio\bin\Debug\net9.0\Dominio.pdb
+C:\Users\Lab15-PC01\TP-Bolillero\Bolilla\Dominio\obj\Debug\net9.0\Dominio.dll
+C:\Users\Lab15-PC01\TP-Bolillero\Bolilla\Dominio\obj\Debug\net9.0\refint\Dominio.dll
+C:\Users\Lab15-PC01\TP-Bolillero\Bolilla\Dominio\obj\Debug\net9.0\Dominio.pdb
+C:\Users\Lab15-PC01\TP-Bolillero\Bolilla\Dominio\obj\Debug\net9.0\ref\Dominio.dll

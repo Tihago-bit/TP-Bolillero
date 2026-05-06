@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Dominio.Tets")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+70fb2a4ab83d9849f37746f7a2dfda5eb645b94d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d3bd16e534fed7b702002bb366a72ccd29de1282")]
 [assembly: System.Reflection.AssemblyProductAttribute("Dominio.Tets")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Dominio.Tets")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

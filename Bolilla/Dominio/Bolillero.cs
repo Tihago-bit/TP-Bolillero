@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 
 
-namespace Dominio 
+namespace Dominio
 {
     public class Bolillero : ICloneable
     {
@@ -13,7 +13,7 @@ namespace Dominio
         private List<int> _sacadas;
         private IGeneradorAleatorio _generador;
         private int _n;
-        
+
         public List<int> Jugada { get; set; }
 
         public Bolillero(int n, IGeneradorAleatorio generador)
@@ -23,18 +23,15 @@ namespace Dominio
             _generador = generador ?? throw new ArgumentNullException(nameof(generador));
             InicializarBolillas();
         }
-        
-        public object Clone()
-        {
-            var clon = new Bolillero(_n, _generador)
-            {
-                _bolillas = new List<int>(_bolillas),
-                _sacadas = new List<int>(_sacadas)
-            };
 
-            return clon;
-        }
-
+       public object Clone()
+{
+    Bolillero clon = new Bolillero(_n, _generador);
+    clon._bolillas = new List<int>(_bolillas);
+    clon._sacadas = new List<int>(_sacadas);
+    clon.Jugada = Jugada == null ? null : new List<int>(Jugada);
+    return clon;
+}
         private void InicializarBolillas()
         {
             _bolillas = new List<int>();
@@ -61,7 +58,7 @@ namespace Dominio
 
             return bolilla;
         }
-                public int CantidadDentro()
+        public int CantidadDentro()
         {
             return _bolillas?.Count ?? 0;
         }
@@ -70,26 +67,49 @@ namespace Dominio
         {
             return _sacadas?.Count ?? 0;
         }
+        public void ReIngresar()
+        {
+            _bolillas.AddRange(_sacadas);
+            _sacadas.Clear();
+        }
 
         public bool Jugar(List<int> numeros)
         {
             foreach (int numeroApostado in numeros)
+            {
+                // Sacamos una bolilla del bolillero
+                int bolillaSacada = SacarBolilla();
+
+                // Si la bolilla que salió no es igual al número que el jugador esperaba, pierde
+                if (bolillaSacada != numeroApostado)
+                {
+                    return false;
+                }
+            }
+
+            // Si terminó de revisar toda la lista y todas las bolillas coincidieron, ¡gana!
+            return true;
+        }
+        public int JugarNVeces(List<int> jugada, int veces)
+{
+    int ganadas = 0;
+
+    for (int i = 0; i < veces; i++)
     {
-        // Sacamos una bolilla del bolillero
-        int bolillaSacada = SacarBolilla();
+        Bolillero clon = (Bolillero)this.Clone();
 
-        // Si la bolilla que salió no es igual al número que el jugador esperaba, pierde
-        if (bolillaSacada != numeroApostado)
+        if (clon.Jugar(jugada))
         {
-            return false;
+            ganadas++;
         }
     }
 
-    // Si terminó de revisar toda la lista y todas las bolillas coincidieron, ¡gana!
-    return true;
-        }
-    }
+    return ganadas;
 }
+    }
+
+}
+
 
 
 

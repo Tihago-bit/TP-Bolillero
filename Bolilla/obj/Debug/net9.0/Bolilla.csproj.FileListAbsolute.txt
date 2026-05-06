@@ -1,0 +1,5 @@
+C:\Users\Lab15-PC01\TP-Bolillero\Bolilla\obj\Debug\net9.0\Bolilla.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lab15-PC01\TP-Bolillero\Bolilla\obj\Debug\net9.0\Bolilla.AssemblyInfoInputs.cache
+C:\Users\Lab15-PC01\TP-Bolillero\Bolilla\obj\Debug\net9.0\Bolilla.AssemblyInfo.cs
+C:\Users\Lab15-PC01\TP-Bolillero\Bolilla\obj\Debug\net9.0\Bolilla.csproj.CoreCompileInputs.cache
+C:\Users\Lab15-PC01\TP-Bolillero\Bolilla\obj\Debug\net9.0\Bolilla.sourcelink.json
